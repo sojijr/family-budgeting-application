@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #093697;
+}
+
+.blue-gold-theme {
+    background-color: #f2f2f2;
+    color: #AF8B0F;
+}
+
+.container, .dashboard-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.welcome-info {
+    text-align: left;
+    font-weight: bold;
+}
+
+.logout {
+    background-color: #093697;
+    color: white;
+    width: 80px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+select {
+    width: 95%;
+}
+
+button.btn {
+    background-color: #093697;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.dashboard-content {
+    display: flex;
+    gap: 20px;
+}
+
+.add-expense-section, .categories-section {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border: 1px solid #AF8B0F;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categories-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories-section li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        flex-direction: column;
+    }
+}
