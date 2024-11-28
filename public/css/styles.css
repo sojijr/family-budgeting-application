@@ -124,9 +124,6 @@ button.btn {
 }
 
 @media (max-width: 768px) {
-    body {
-        height: auto;
-    }
     .dashboard-content {
         flex-direction: column;
     }

@@ -3,7 +3,7 @@ session_start();
 include("include/dbConnect.php");
 
 if (!isset($_SESSION['loginUser'])) {
-    header("location: login.php");
+    header("location: index.php");
     exit();
 }
 
@@ -34,6 +34,13 @@ $savingsProgress = ($totalSavings >= $savingsGoal) ? 100 : ($totalSavings / $sav
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="public/css/styles.css">
+
+    <style>
+     body {
+        height: auto;
+    }
+    </style>
+
 </head>
 <body class="blue-gold-theme">
     <div class="dashboard-container">
