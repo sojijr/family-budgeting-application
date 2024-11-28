@@ -92,11 +92,16 @@ button.btn {
 
 .add-expense-section, .categories-section {
     flex: 1;
+    max-height: 370px;
     background: white;
     padding: 15px;
     border: 1px solid #AF8B0F;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categories-section {
+    overflow-y: scroll;
 }
 
 .categories-section ul {
@@ -119,6 +124,9 @@ button.btn {
 }
 
 @media (max-width: 768px) {
+    body {
+        height: auto;
+    }
     .dashboard-content {
         flex-direction: column;
     }

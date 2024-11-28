@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (categoryDropdown) {
         categoryDropdown.addEventListener('change', () => {
-            if (categoryDropdown.value === 'savings') {
+            if (categoryDropdown.value === '3') {
                 addButton.textContent = 'Add Savings';
             } else {
                 addButton.textContent = 'Add Expense';

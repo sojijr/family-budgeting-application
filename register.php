@@ -1,3 +1,34 @@
+<?php
+session_start();
+include("include/dbConnect.php");
+
+if (isset($_POST['register'])) {
+    $name = $_POST['family-name'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $income = $_POST['income'];
+    $savingsGoal = $_POST['saving-goal'];
+
+    $checkEmail = "SELECT * FROM family_profile WHERE Email = '$email'";
+    $result = $conn->query($checkEmail);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo "<script>alert('Email is already registered. Please use a different email.')</script>";
+    } else {
+        $sql = "INSERT INTO family_profile (Name, Email, Password, TotalMonthlyIncome, MonthlySavingsGoal) 
+                VALUES ('$name', '$email', '$password', '$income', '$savingsGoal')";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Registration successful!')</script>";
+            header("location: index.php");
+        } else {
+            echo "<script>alert('Registration failed. Please try again.')</script>";
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,24 +40,24 @@
 <body class="blue-gold-theme">
     <div class="container">
         <h1>Register</h1>
-        <form id="register-form">
+        <form method="POST" id="register-form">
             <!-- Page 1 -->
             <div class="page page-1">
                 <label for="family-name">Family Name:</label>
-                <input type="text" id="family-name" required>
+                <input type="text" name="family-name" required>
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" required>
+                <input type="email" name="email" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" required>
+                <input type="password" name="password" required>
                 <button type="button" id="next" class="btn">Next</button>
             </div>
             <!-- Page 2 -->
             <div class="page page-2 hidden">
                 <label for="income">Total Monthly Income:</label>
-                <input type="number" id="income" required>
+                <input type="number" name="income" required>
                 <label for="savings-goal">Monthly Savings Goal:</label>
-                <input type="number" id="savings-goal" required>
-                <button type="submit" class="btn">Register</button>
+                <input type="number" name="saving-goal" required>
+                <button type="submit" name="register" class="btn">Register</button>
             </div>
         </form>
     </div>
