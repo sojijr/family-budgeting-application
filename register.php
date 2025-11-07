@@ -17,10 +17,17 @@ if (isset($_POST['register'])) {
     } else {
         $sql = "INSERT INTO family_profile (Name, Email, Password, TotalMonthlyIncome, MonthlySavingsGoal) 
                 VALUES ('$name', '$email', '$password', '$income', '$savingsGoal')";
-        
+
         if ($conn->query($sql) === TRUE) {
+            // auto-login after successful registration
+            $familyId = $conn->insert_id;
+            $_SESSION['loginUser'] = $familyId;
+            $_SESSION['familyName'] = $name;
+            $_SESSION['income'] = $income;
+            $_SESSION['savingsGoal'] = $savingsGoal;
+
             echo "<script>alert('Registration successful!')</script>";
-            header("location: index.php");
+            header("location: dashboard.php");
         } else {
             echo "<script>alert('Registration failed. Please try again.')</script>";
         }
